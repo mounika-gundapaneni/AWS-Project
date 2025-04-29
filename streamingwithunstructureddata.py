@@ -37,35 +37,35 @@ if __name__ == "__main__":
             .config('spark.hadoop.fs.s3a.credentials.provider', 'org.apache.hadoop.fs.s3a.SimpleAWSCredentialsProvider')
             .getOrCreate())
     print("Spark session created successfully.")
-#     text_input_dir=r'C:/Users/saigm/AWS-Project/input/input_text'
-#     json_input_dir=r'C:/Users/saigm/AWS-Project/input/input_json'
-#     csv_input_dir=r'C:/Users/saigm/AWS-Project/input/input_csv'
-#     pdf_input_dir=r'C:/Users/saigm/AWS-Project/input/input_pdf'
-#     img_input_dir=r'C:/Users/saigm/AWS-Project/input/input_img'
-#     video_input_dir=r'C:/Users/saigm/AWS-Project/input/input_video'
-#     print(f"Text input directory: {text_input_dir}")
-#     data_schema = StructType([
-#         StructField("file_name", StringType(), True),
-#         StructField("position", IntegerType(), True),
-#         StructField("classcode", StringType(), True),
-#         StructField("salary_start", DoubleType(), True),
-#         StructField("salary_end", DoubleType(), True),
-#         StructField("start_date", DateType(), True),
-#         StructField("end_date", DateType(), True),
-#         StructField("req", StringType(), True),
-#         StructField("notes", StringType(), True),
-#         StructField("duties", StringType(), True),
-#         StructField("selection", StringType(), True),
-#         StructField("experience_length", StringType(), True),
-#         StructField("job_type", StringType(), True),
-#         StructField("education_length", StringType(), True),
-#         StructField("school_type", StringType(), True),
-#         StructField("application_location", StringType(), True)
-#     ])
-# udf=define_udfs()
-# # Read streaming data from a directory
-# job_bulletins_df=(spark.readStream 
-#                   .format("text")
-#                   .option("wholetext", "True") 
-#                   .load(text_input_dir))
-# job_bulletins_df.show()
+    text_input_dir=r'C:/Users/saigm/AWS-Project/input/input_text'
+    json_input_dir=r'C:/Users/saigm/AWS-Project/input/input_json'
+    csv_input_dir=r'C:/Users/saigm/AWS-Project/input/input_csv'
+    pdf_input_dir=r'C:/Users/saigm/AWS-Project/input/input_pdf'
+    img_input_dir=r'C:/Users/saigm/AWS-Project/input/input_img'
+    video_input_dir=r'C:/Users/saigm/AWS-Project/input/input_video'
+    print(f"Text input directory: {text_input_dir}")
+    data_schema = StructType([
+         StructField("file_name", StringType(), True),
+         StructField("position", IntegerType(), True),
+         StructField("classcode", StringType(), True),
+         StructField("salary_start", DoubleType(), True),
+         StructField("salary_end", DoubleType(), True),
+         StructField("start_date", DateType(), True),
+         StructField("end_date", DateType(), True),
+         StructField("req", StringType(), True),
+         StructField("notes", StringType(), True),
+         StructField("duties", StringType(), True),
+         StructField("selection", StringType(), True),
+         StructField("experience_length", StringType(), True),
+         StructField("job_type", StringType(), True),
+         StructField("education_length", StringType(), True),
+         StructField("school_type", StringType(), True),
+         StructField("application_location", StringType(), True)
+     ])
+udf=define_udfs()
+ # Read streaming data from a directory
+job_bulletins_df=(spark.readStream 
+                   .format("text")
+                   .option("wholetext", "True") 
+                   .load(text_input_dir))
+job_bulletins_df.show()
